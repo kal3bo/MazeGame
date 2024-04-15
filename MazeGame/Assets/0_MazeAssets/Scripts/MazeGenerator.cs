@@ -5,9 +5,6 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField, Tooltip("Wall Prefab to Build Maze.")]
     private GameObject wallPrefab;
 
-    [SerializeField, Tooltip("GameObject at Entry Location.")]
-    private GameObject entryPrefab;
-
     [SerializeField, Tooltip("GameObject at First Exit Location.")]
     private GameObject exitPrefab;
 
@@ -23,8 +20,6 @@ public class MazeGenerator : MonoBehaviour
     private bool[,] visited;
     private int actualWidth;
     private int actualHeight;
-
-    private int floorExtraSize = 10;
 
     /** Get Player Progression. */
     private void Awake()
@@ -114,7 +109,7 @@ public class MazeGenerator : MonoBehaviour
     /** Instantiates and scales a corresponding plane as floor. */
     void BuildFloor()
     {
-        Vector3 scale = new Vector3(actualWidth + floorExtraSize, actualHeight + floorExtraSize, 1);
+        Vector3 scale = new Vector3(actualWidth, actualHeight, 1);
         Vector3 position = new Vector3(actualWidth / 2.0f - 0.5f, -0.5f, actualHeight / 2.0f - 0.5f);
         Quaternion rotation = Quaternion.Euler(90, 0, 0);
 

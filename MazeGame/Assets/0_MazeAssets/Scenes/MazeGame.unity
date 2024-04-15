@@ -820,8 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallPrefab: {fileID: 7713953524842241447, guid: b9f59f174a3c04e4986eaeecb72ea963, type: 3}
-  entryPrefab: {fileID: 6199345901039664760, guid: aedd215c55a9b4f8d98e7570f976ed80, type: 3}
-  exitPrefab: {fileID: 6199345901039664760, guid: aedd215c55a9b4f8d98e7570f976ed80, type: 3}
+  exitPrefab: {fileID: 4321838664528103716, guid: b42e20dac90634769a51292c29d5e0a4, type: 3}
   floorPrefab: {fileID: 3722465080003906714, guid: 89e569d2f0c334cf69ac1eee2f7ea64e, type: 3}
 --- !u!4 &1560980248
 Transform:
