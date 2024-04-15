@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1011,10 +1011,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 2038141620}
   m_HandleRect: {fileID: 1044023525}
   m_Direction: 0
-  m_MinValue: 10
-  m_MaxValue: 100
+  m_MinValue: 1
+  m_MaxValue: 25
   m_WholeNumbers: 1
-  m_Value: 10
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Maze Size:'
+  m_text: 'Maze Level:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 421433e7ab2e3456ebfaaca8f0601977, type: 2}
   m_sharedMaterial: {fileID: 2857812184278629028, guid: 421433e7ab2e3456ebfaaca8f0601977, type: 2}
@@ -1337,9 +1337,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '10
-
-'
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 421433e7ab2e3456ebfaaca8f0601977, type: 2}
   m_sharedMaterial: {fileID: 2857812184278629028, guid: 421433e7ab2e3456ebfaaca8f0601977, type: 2}
