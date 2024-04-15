@@ -87,7 +87,7 @@ public class MazeGenerator : MonoBehaviour
                 // Entry location at bottom left:
                 if (x == 1 && y == 0)
                 {
-                    Instantiate(entryPrefab, position, Quaternion.identity);
+                    continue;
                 }
 
                 // First exit location at top right:

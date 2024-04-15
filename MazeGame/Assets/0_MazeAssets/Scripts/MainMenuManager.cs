@@ -49,11 +49,13 @@ public class MainMenuManager : MonoBehaviour
     {
         if (inputSeed.text.Length == 5 && int.TryParse(inputSeed.text, out int seed))
         {
-            // Update level based on validated seed:
-            UpdatePlayerLevel(seed);
+            // Update level based on the slider's value:
+            UpdatePlayerLevel((int)levelSlider.value);
 
-            // Update the display text:
-            sliderSizeText.text = inputSeed.text;
+            // Save the validated seed to PlayerPrefs:
+            PlayerPrefs.SetInt("CurrentSeed", seed);
+
+            // Start the game:
             StartGame();
         }
         else

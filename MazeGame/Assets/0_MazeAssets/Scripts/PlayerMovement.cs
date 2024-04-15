@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Vector2 moveInput;
+
     [SerializeField] float movementSpeed;
     [SerializeField] Transform playerOrientation;
 
@@ -14,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
 
     // Input System:
     private PlayerInputActions inputActions;
-    private Vector2 moveInput;
 
     /** Creates Input Action Bindings. */
     private void Awake()
