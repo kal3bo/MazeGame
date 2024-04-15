@@ -8,6 +8,12 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField, Tooltip("GameObject at First Exit Location.")]
     private GameObject exitPrefab;
 
+    [SerializeField, Tooltip("First Exit GameObject in the Scene.")]
+    private Transform firstExit;
+
+    [SerializeField, Tooltip("Second Exit GameObject in the Scene.")]
+    private Transform secondExit;
+
     [SerializeField, Tooltip("Floor Prefab Underneath Maze.")]
     private GameObject floorPrefab;
 
@@ -89,12 +95,14 @@ public class MazeGenerator : MonoBehaviour
                 else if (x == actualWidth - 2 && y == actualHeight - 1)
                 {
                     Instantiate(exitPrefab, position, Quaternion.identity);
+                    firstExit.position = new Vector3(actualWidth - 2, 0, actualHeight - 1);
                 }
 
                 // Second exit location at top left:
                 else if (x == 1 && y == actualHeight - 1)
                 {
                     Instantiate(exitPrefab, position, Quaternion.identity);
+                    secondExit.position = new Vector3(1, 0, actualHeight - 1);
                 }
 
                 // Place walls where not visited:

@@ -3,12 +3,12 @@ using UnityEngine.InputSystem;
 
 public class TorchBobbing : MonoBehaviour
 {
-    [SerializeField] private PlayerMovement playerMovementScript; // Reference to the PlayerMovement script
-    [SerializeField] private float bobbingSpeed = 0.18f; // Speed of the bobbing effect
-    [SerializeField] private float bobbingAmount = 0.05f; // Amount of bobbing up and down
+    [SerializeField] private PlayerMovement playerMovementScript;
+    [SerializeField] private float bobbingSpeed = 0.18f;
+    [SerializeField] private float bobbingAmount = 0.05f;
 
     private float timer = 0.0f;
-    private Vector3 restPosition; // Initial position of the torch
+    private Vector3 restPosition;
 
     /** Store the initial local position of the torch. */
     void Start()
