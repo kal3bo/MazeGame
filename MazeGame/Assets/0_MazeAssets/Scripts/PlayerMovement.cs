@@ -7,38 +7,42 @@ public class PlayerMovement : MonoBehaviour
 {
     public Vector2 moveInput;
 
-    [SerializeField] float movementSpeed;
-    [SerializeField] Transform playerOrientation;
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private Transform playerOrientation;
+    [SerializeField] private AudioSource footStepsSFX; // Serialized AudioSource field
 
     private Vector3 moveDirection;
-
     private Rigidbody playerBody;
 
     // Input System:
     private PlayerInputActions inputActions;
 
-    /** Creates Input Action Bindings. */
     private void Awake()
     {
         inputActions = new PlayerInputActions();
 
-        inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
-        inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+        inputActions.Player.Move.performed += ctx =>
+        {
+            moveInput = ctx.ReadValue<Vector2>();
+            ManageFootsteps(true);
+        };
+        inputActions.Player.Move.canceled += ctx =>
+        {
+            moveInput = Vector2.zero;
+            ManageFootsteps(false);
+        };
     }
 
-    /** Enables Input System. */
     private void OnEnable()
     {
         inputActions.Player.Enable();
     }
 
-    /** Disables Input System. */
     private void OnDisable()
     {
         inputActions.Player.Disable();
     }
 
-    /** Getting RigidBody and Freezing Rotation. */
     private void Start()
     {
         playerBody = GetComponent<Rigidbody>();
@@ -47,13 +51,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();    
+        MovePlayer();
     }
 
-    /** Movement Logic using Input System. */
     private void MovePlayer()
     {
         moveDirection = playerOrientation.forward * moveInput.y + playerOrientation.right * moveInput.x;
-        playerBody.AddForce(moveDirection.normalized * movementSpeed, ForceMode.Force); 
+        if (moveDirection.magnitude > 0)
+        {
+            playerBody.AddForce(moveDirection.normalized * movementSpeed, ForceMode.Force);
+        }
+    }
+
+    /** Manages the playing and stopping of footstep sounds */
+    private void ManageFootsteps(bool isMoving)
+    {
+        if (isMoving && !footStepsSFX.isPlaying)
+        {
+            footStepsSFX.Play();
+        }
+        else if (!isMoving && footStepsSFX.isPlaying)
+        {
+            footStepsSFX.Stop();
+        }
     }
 }
