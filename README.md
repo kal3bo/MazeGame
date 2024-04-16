@@ -20,7 +20,7 @@
 #### Running the Game
 
 *   **Unity Editor**: Open the scene `Assets/0_MazeAssets/Scenes/MainMenu` and press `Play`.
-*   **Executable Version**: Run `MazeGame/MazeExplorer/MazeExplorer.exe` on Windows.
+*   **Executable Version**: Run `MazeGame/MazeExplorerWindows/MazeExplorer.exe` on Windows.
 
 ### Game Controls
 
